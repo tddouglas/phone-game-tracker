@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Daily Holes", "key": "daily-holes",
+    "detect": "Daily Holes\\s*[—–-]+\\s*Round\\s*#\\d+",
+    "puzzle": "Round\\s*#(\\d+)",
+    "score": "·\\s*(?P<score>[+-]?\\d+|E)\\s*\\(\\d+\\)",
+    "direction": "lower", "unit": "strokes", "display": "{score} to par"
+  },
+  {
+    "name": "Daily Holes: Wild Three", "key": "daily-holes-wild-three",
+    "detect": "Daily Holes\\s*[—–-]+\\s*Wild Three",
+    "score": "·\\s*(?P<score>[+-]?\\d+|E)\\s*\\(\\d+\\)",
+    "direction": "lower", "unit": "strokes", "display": "{score} to par"
+  },
+  {
+    "name": "DailyTens", "key": "dailytens",
+    "detect": "DailyTens\\s*#\\d+",
+    "puzzle": "DailyTens\\s*#(\\d+)",
+    "count": "🏆",
+    "direction": "higher", "unit": "points", "max_score": 10, "display": "{score}/10"
+  },
+  {
+    "name": "DailyOrbs", "key": "dailyorbs",
+    "detect": "DailyOrbs\\s+\\w+ \\d{1,2} \\d{4}",
+    "puzzle": "DailyOrbs\\s+(\\w+ \\d{1,2} \\d{4})",
+    "count": ["🔴", "🟠", "🟡", "🟢", "🔵", "🟣", "🟤", "⚫", "⚪", "❤", "🧡", "💛", "💚", "💙", "💜", "🤎", "🖤", "🤍"],
+    "direction": "lower", "unit": "other", "display": "{score} orbs"
+  },
+  {
+    "name": "Eraly", "key": "eraly",
+    "detect": "Eraly\\s*#\\d+",
+    "puzzle": "Eraly\\s*#(\\d+)",
+    "score": "(?P<score>\\d+)\\s*/\\s*(?P<max>\\d+)",
+    "direction": "higher", "unit": "points"
+  },
+  {
+    "name": "Noillirk", "key": "noillirk",
+    "detect": "Noillirk daily\\s*#\\d+",
+    "puzzle": "Noillirk daily\\s*#(\\d+)",
+    "score": "#\\d+\\s*-\\s*(?P<score>[\\d,]+)\\s*m\\b",
+    "direction": "higher", "unit": "other", "display": "{score}m"
+  },
+  {
+    "name": "Spotle Movies", "key": "spotle-movies",
+    "detect": "Spotle Movies\\s*#\\d+",
+    "puzzle": "Spotle Movies\\s*#(\\d+)",
+    "count": ["⬜", "🟩"],
+    "fail": "❌",
+    "direction": "lower", "unit": "guesses", "max_score": 12
+  },
+  {
+    "name": "Heardle", "key": "heardle",
+    "detect": "#Heardle|Heardle\\s*•",
+    "puzzle": "Heardle\\s*•\\s*(\\d{4}-\\d{2}-\\d{2})",
+    "score": "^(?P<score>\\d+|X)\\s*/\\s*(?P<max>\\d+)\\s*$",
+    "direction": "lower", "unit": "guesses"
+  }
+]

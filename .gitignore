@@ -1,0 +1,9 @@
+# Local-only: contains phone numbers and raw messages
+config.json
+state.db
+*.db-journal
+__pycache__/
+.vercel/
+tests/fake_chat.db*
+.playwright-mcp/
+.DS_Store

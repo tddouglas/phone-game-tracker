@@ -1,0 +1,20 @@
+{
+  "chat": null,
+  "title": "Game Chat",
+  "timezone": "America/New_York",
+  "me_name": "Tyler",
+  "names": {
+    "+15551234567": "Dave"
+  },
+  "game_aliases": {
+    "nerdlegame": "Nerdle"
+  },
+  "llm": {
+    "enabled": true,
+    "model": "claude-haiku-5-5",
+    "api_key_env": "ANTHROPIC_API_KEY"
+  },
+  "export_raw": true,
+  "publish": "git",
+  "chat_db": "~/Library/Messages/chat.db"
+}
