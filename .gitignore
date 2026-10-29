@@ -7,3 +7,5 @@ __pycache__/
 tests/fake_chat.db*
 .playwright-mcp/
 .DS_Store
+.vercel
+.env*
