@@ -54,5 +54,12 @@
     "puzzle": "Heardle\\s*•\\s*(\\d{4}-\\d{2}-\\d{2})",
     "score": "^(?P<score>\\d+|X)\\s*/\\s*(?P<max>\\d+)\\s*$",
     "direction": "lower", "unit": "guesses"
+  },
+  {
+    "name": "MapTap", "key": "maptap",
+    "detect": "maptap\\.gg",
+    "puzzle": "maptap\\.gg\\s+(\\w+ \\d{1,2})",
+    "score": "Final score:\\s*(?P<score>[\\d,]+)",
+    "direction": "higher", "unit": "points"
   }
 ]
