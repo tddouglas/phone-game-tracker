@@ -8,13 +8,14 @@
   python3 -m gamechat games                 games discovered so far
   python3 -m gamechat review                messages that looked like shares but weren't parsed
   python3 -m gamechat alias <from> <to>     merge a game name into another (then sync --full)
+  python3 -m gamechat icons [--force]       fetch favicons for games in games.json (set each game's url there)
 """
 from __future__ import annotations
 
 import argparse
 import sys
 
-from . import config, export, imessage, publish, sync
+from . import config, export, icons, imessage, publish, sync
 from .store import Store
 
 
@@ -102,6 +103,10 @@ def cmd_review(a):
         print(r["text"])
 
 
+def cmd_icons(a):
+    icons.run(force=a.force)
+
+
 def cmd_alias(a):
     config.update(game_aliases={a.src: a.dst})
     print(f"Games named {a.src!r} will be recorded as {a.dst!r}. Rebuild with: python3 -m gamechat sync --full")
@@ -122,6 +127,7 @@ def main(argv=None):
     s = sub.add_parser("name"); s.add_argument("handle"); s.add_argument("name"); s.set_defaults(fn=cmd_name)
     s = sub.add_parser("games"); s.set_defaults(fn=cmd_games)
     s = sub.add_parser("review"); s.add_argument("--limit", type=int, default=30); s.set_defaults(fn=cmd_review)
+    s = sub.add_parser("icons"); s.add_argument("--force", action="store_true"); s.set_defaults(fn=cmd_icons)
     s = sub.add_parser("alias"); s.add_argument("src"); s.add_argument("dst"); s.set_defaults(fn=cmd_alias)
 
     a = p.parse_args(argv)

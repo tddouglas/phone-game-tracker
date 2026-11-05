@@ -1,42 +1,46 @@
 :root {
-  color-scheme: light;
-  --bg: #f6f5f2;
-  --surface: #fcfcfb;
-  --surface-2: #f0efec;
-  --line: #e2e0da;
-  --text: #0b0b0b;
-  --text-2: #52514e;
-  --muted: #7a7973;
-  --accent: #2a78d6;
-  --good-bg: #dff3df;
-  --good-fg: #0b5e0b;
-  --bad-bg: #fbe3e1;
-  --bad-fg: #9a2524;
-  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
-  --s5: #e87ba4; --s6: #008300; --s7: #6250d6; --s8: #e34948;
-  --h0: #f0efec; --h1: #b7d3f6; --h2: #6da7ec; --h3: #2a78d6; --h4: #184f95;
-  --radius: 10px;
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+  --bg: #0a0a12; --surface: #12121f; --surface-2: #1b1b2e; --line: #2a2a45;
+  --text: #f4f4ff; --text-2: #b8b8d8; --muted: #7c7ca0;
+  --accent: #ff2bd6; --on-accent: #ffffff; --accent-2: #22e6ff; --bubble: #1b1b2e;
+  --good-bg: #39ff88; --good-fg: #00230f; --bad-bg: #3a0f14; --bad-fg: #ff6b6b;
+  --up: #39ff88; --down: #ff6b6b;
+  --s1: #22e6ff; --s2: #ff2bd6; --s3: #39ff88; --s4: #ffe23d;
+  --s5: #9b6bff; --s6: #ff8a1f; --s7: #4d7cff; --s8: #ff5a8a;
+  --h0: #1b1b2e; --h1: #4a1450; --h2: #8a1c86; --h3: #c722b8; --h4: #ff2bd6;
+  --press: inset 0 -2px 0 rgba(0,0,0,.28);
+  --radius: 20px;
+  --brand: "Rubik Mono One", ui-sans-serif, sans-serif;
+  --display: "Bungee", ui-sans-serif, sans-serif;
+  --body: "Figtree", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-family: var(--body);
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #121211; --surface: #1a1a19; --surface-2: #232321; --line: #2f2f2c;
-    --text: #f0efec; --text-2: #c3c2b7; --muted: #8d8c85; --accent: #3987e5;
-    --good-bg: #133a16; --good-fg: #8fdc8f; --bad-bg: #42191a; --bad-fg: #f2a3a2;
-    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
-    --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
-    --h0: #232321; --h1: #184f95; --h2: #256abf; --h3: #3987e5; --h4: #86b6ef;
+/* Dark is the base theme; light applies only when the device asks for it */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --bg: #f3f3fa; --surface: #ffffff; --surface-2: #e8e8f4; --line: #d6d6ea;
+    --text: #10101c; --text-2: #44445e; --muted: #6f6f8c;
+    --accent: #c4009f; --on-accent: #ffffff; --accent-2: #0090b8; --bubble: #e8e8f4;
+    --good-bg: #12a454; --good-fg: #ffffff; --bad-bg: #ffe1e1; --bad-fg: #b3161b;
+    --up: #0a7a3c; --down: #b3161b;
+    --s1: #0090b8; --s2: #c4009f; --s3: #12a454; --s4: #b88a00;
+    --s5: #6a3fe0; --s6: #d9650a; --s7: #2f5fe0; --s8: #d6336b;
+    --h0: #e8e8f4; --h1: #f6c4ec; --h2: #e57ad2; --h3: #c4009f; --h4: #7a0063;
+    --press: inset 0 -2px 0 rgba(16,16,28,.12);
   }
 }
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #121211; --surface: #1a1a19; --surface-2: #232321; --line: #2f2f2c;
-  --text: #f0efec; --text-2: #c3c2b7; --muted: #8d8c85; --accent: #3987e5;
-  --good-bg: #133a16; --good-fg: #8fdc8f; --bad-bg: #42191a; --bad-fg: #f2a3a2;
-  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
-  --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
-  --h0: #232321; --h1: #184f95; --h2: #256abf; --h3: #3987e5; --h4: #86b6ef;
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f3f3fa; --surface: #ffffff; --surface-2: #e8e8f4; --line: #d6d6ea;
+  --text: #10101c; --text-2: #44445e; --muted: #6f6f8c;
+  --accent: #c4009f; --on-accent: #ffffff; --accent-2: #0090b8; --bubble: #e8e8f4;
+  --good-bg: #12a454; --good-fg: #ffffff; --bad-bg: #ffe1e1; --bad-fg: #b3161b;
+  --up: #0a7a3c; --down: #b3161b;
+  --s1: #0090b8; --s2: #c4009f; --s3: #12a454; --s4: #b88a00;
+  --s5: #6a3fe0; --s6: #d9650a; --s7: #2f5fe0; --s8: #d6336b;
+  --h0: #e8e8f4; --h1: #f6c4ec; --h2: #e57ad2; --h3: #c4009f; --h4: #7a0063;
+  --press: inset 0 -2px 0 rgba(16,16,28,.12);
 }
 
 * { box-sizing: border-box; }
@@ -50,16 +54,25 @@ a { color: inherit; }
 
 header.top { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; padding-top: env(safe-area-inset-top); }
 header.top .wrap { display: flex; align-items: center; gap: 20px; height: 56px; }
-.brand { font-weight: 700; text-decoration: none; letter-spacing: -0.01em; font-size: 17px; }
-nav { display: flex; gap: 4px; }
-nav a { text-decoration: none; color: var(--text-2); padding: 6px 10px; border-radius: 8px; font-size: 14px; }
-nav a.on { background: var(--surface-2); color: var(--text); font-weight: 600; }
-.range { margin-left: auto; display: flex; background: var(--surface-2); border-radius: 8px; padding: 2px; }
-.range button { border: 0; background: none; color: var(--text-2); font: inherit; font-size: 13px; padding: 4px 9px; border-radius: 6px; cursor: pointer; }
-.range button.on { background: var(--surface); color: var(--text); font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.brand { font-family: var(--brand); font-weight: 400; text-decoration: none; font-size: 17px; display: flex; align-items: center; gap: 9px; white-space: nowrap; }
+/* Brand mark: a tiny emoji share grid, the thing everyone pastes into the chat */
+.mark { display: grid; grid-template-columns: repeat(3, 6px); gap: 2px; padding: 4px; background: var(--surface-2); border-radius: 7px; }
+.mark i { width: 6px; height: 6px; border-radius: 2px; background: var(--line); }
+.mark i:nth-child(1), .mark i:nth-child(4), .mark i:nth-child(5), .mark i:nth-child(8), .mark i:nth-child(9) { background: var(--good-bg); }
+.mark i:nth-child(2), .mark i:nth-child(6) { background: var(--accent); }
+nav { display: flex; gap: 4px; margin-left: auto; }
+nav a { text-decoration: none; color: var(--text-2); padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+nav a.on { background: var(--accent); color: var(--on-accent); }
+@media (hover: hover) { nav a:not(.on):hover { color: var(--accent-2); } }
+.range { margin-left: auto; display: flex; background: var(--surface-2); border-radius: 999px; padding: 3px; }
+.range button { border: 0; background: none; color: var(--text-2); font: inherit; font-size: 13px; font-weight: 600; padding: 4px 11px; border-radius: 999px; cursor: pointer; }
+.range button.on { background: var(--surface); color: var(--text); box-shadow: 0 0 0 1px var(--line); }
+
+:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
 
 main { padding-top: 24px; padding-bottom: 48px; }
-h1 { font-size: 24px; margin: 0 0 4px; letter-spacing: -0.02em; }
+h1, h2 { font-family: var(--display); font-weight: 400; letter-spacing: 0; line-height: 1.15; }
+h1 { font-size: 26px; margin: 0 0 6px; }
 h2 { font-size: 16px; margin: 0 0 12px; }
 .sub { color: var(--text-2); margin: 0 0 20px; }
 .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
@@ -70,12 +83,13 @@ h2 { font-size: 16px; margin: 0 0 12px; }
 .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
 .grid .card { margin: 0; }
 a.card { text-decoration: none; display: block; transition: border-color .15s; }
-@media (hover: hover) { a.card:hover { border-color: var(--accent); } }
-a.card:active { border-color: var(--accent); }
+@media (hover: hover) { a.card:hover { border-color: var(--accent-2); } }
+a.card:active { border-color: var(--accent-2); }
 
-.btn { border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: 8px; padding: 6px 10px; font: inherit; font-size: 14px; cursor: pointer; text-decoration: none; }
+.btn { border: 0; background: var(--surface-2); color: var(--text); border-radius: 12px; padding: 6px 12px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: var(--press); }
+.btn:active:not([disabled]) { box-shadow: none; transform: translateY(1px); }
 .btn[disabled] { opacity: .4; cursor: default; }
-input[type=date] { -webkit-appearance: none; appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: 8px; padding: 5px 8px; font: inherit; font-size: 14px; min-height: 34px; }
+input[type=date] { -webkit-appearance: none; appearance: none; border: 1px solid var(--line); background: var(--surface-2); color: var(--text); border-radius: 12px; padding: 5px 10px; font: inherit; font-size: 14px; min-height: 34px; }
 input[type=date]::-webkit-date-and-time-value { text-align: left; }
 
 .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -88,17 +102,25 @@ td.cell { text-align: center; font-variant-numeric: tabular-nums; }
 /* Day grid: keep the game column pinned while player columns scroll sideways on phones */
 table.day { border-collapse: separate; border-spacing: 0; }   /* collapsed borders break on sticky cells in WebKit */
 table.day th:first-child, table.day td:first-child { position: sticky; left: 0; z-index: 1; background: var(--surface); }
-table.day th:not(:first-child) { white-space: normal; min-width: 72px; }
-.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 13px; }
-.best { background: var(--good-bg); color: var(--good-fg); font-weight: 600; }
+table.day th:not(:first-child) { white-space: normal; min-width: 72px; text-align: center; }
+/* Day-grid scores as chunky game-key tiles */
+.pill { display: inline-block; min-width: 40px; padding: 3px 8px; border-radius: 8px; font-size: 13px; font-weight: 600; background: var(--surface-2); box-shadow: var(--press); }
+.best { background: var(--good-bg); color: var(--good-fg); font-weight: 700; }
 .worst { background: var(--bad-bg); color: var(--bad-fg); }
 .miss { color: var(--muted); }
+.delta { font-family: var(--body); font-size: 12px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; letter-spacing: 0; }
+.delta.up { color: var(--up); }
+.delta.down { color: var(--down); }
+.prov { font-style: italic; color: var(--text-2); }
+tr.idle td { opacity: .5; }
 .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
 
-.stat { display: flex; flex-direction: column; }
-.stat b { font-size: 22px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.stat span { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
-.stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; margin: 10px 0; }
+.stat { display: flex; flex-direction: column; background: var(--surface-2); border-radius: 14px; padding: 10px 12px; min-width: 0; }
+.stat b { font-family: var(--display); font-weight: 400; font-size: 22px; line-height: 1.15; font-variant-numeric: tabular-nums; overflow-wrap: break-word; }
+.stat span { font-size: 12px; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin: 10px 0; }
+.stats.row3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.grid.wide { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 .kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 14px; margin-top: 8px; }
 .kv dt { color: var(--muted); }
 .kv dd { margin: 0; font-variant-numeric: tabular-nums; }
@@ -106,11 +128,21 @@ table.day th:not(:first-child) { white-space: normal; min-width: 72px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip { background: var(--surface-2); border-radius: 999px; padding: 3px 10px; font-size: 13px; }
 
-pre.share { margin: 6px 0 0; font: 13px/1.35 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; background: var(--surface-2); padding: 8px 10px; border-radius: 8px; }
-.feed { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-.feed .card { margin: 0; padding: 12px; }
-
+/* Shares render as group-chat bubbles: header row above, message below */
+.msg .head { padding: 0 6px 4px 12px; }
+.bubble { background: var(--bubble); border-radius: 18px 18px 18px 6px; padding: 10px 12px; }
+.bubble .game { font-weight: 700; margin-bottom: 4px; }
+.bubble .game a { text-decoration: none; }
+pre.share { margin: 0; font: 13px/1.35 var(--body); white-space: pre-wrap; color: var(--text-2); }
+.feed { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-bottom: 16px; }
+/* Recent games: one row of share bubbles that scrolls sideways */
+.strip { display: flex; gap: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; padding-bottom: 6px; margin-bottom: 20px; align-items: flex-start; }
+.strip .msg { flex: 0 0 220px; scroll-snap-align: start; }
+/* Long shares would stretch the whole row; clip to ~5 lines (full text is on the game page) */
+.strip pre.share { max-height: calc(5 * 1.35em); overflow: hidden; }
+#daily { scroll-margin-top: 72px; }
 .chart-box { position: relative; height: 300px; }
+.chart-box.spark { height: 120px; }
 details summary { cursor: pointer; color: var(--text-2); font-size: 14px; }
 
 .heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 12px); gap: 3px; overflow-x: auto; padding-bottom: 4px; }
@@ -125,17 +157,19 @@ footer { padding-bottom: calc(32px + env(safe-area-inset-bottom)); font-size: 13
   header.top .wrap { flex-wrap: wrap; height: auto; padding-top: 8px; padding-bottom: 8px; gap: 6px 8px; }
   nav { margin-left: auto; }
   nav a { padding: 8px 12px; }
-  header .range { margin-left: 0; width: 100%; }
-  header .range button { flex: 1; }
   .range button { min-height: 34px; padding: 6px 12px; }
   .btn { min-width: 40px; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; }
   /* iOS Safari zooms the page when focusing an input under 16px */
   input[type=date] { font-size: 16px; min-height: 40px; }
   main { padding-top: 16px; }
+  #daily { scroll-margin-top: 116px; }   /* header wraps to two rows */
   .daynav { width: 100%; margin-bottom: 8px; }
   table.day td:first-child { white-space: normal; min-width: 96px; max-width: 120px; }
   .daynav input[type=date] { flex: 1; }
-  h1 { font-size: 20px; }
+  h1 { font-size: 21px; }
+  h2 { font-size: 15px; }
   .chart-box { height: 240px; }
+  .chart-box.spark { height: 100px; }
   th, td { padding: 8px 8px; }
 }
+.gicon { width: 1.1em; height: 1.1em; border-radius: 4px; vertical-align: -0.15em; margin-right: 6px; object-fit: contain; }

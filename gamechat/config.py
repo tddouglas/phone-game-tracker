@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -23,7 +24,25 @@ DEFAULTS = {
 }
 
 
+def load_env():
+    """Fill os.environ from .env / .env.local in the repo root. Variables already set in the shell win."""
+    for name in (".env.local", ".env"):
+        path = ROOT / name
+        if not path.exists():
+            continue
+        for line in path.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, val = line.removeprefix("export ").partition("=")
+            val = val.strip()
+            if len(val) >= 2 and val[0] == val[-1] and val[0] in "\"'":
+                val = val[1:-1]
+            os.environ.setdefault(key.strip(), val)
+
+
 def load() -> dict:
+    load_env()
     cfg = json.loads(json.dumps(DEFAULTS))
     if CONFIG_PATH.exists():
         user = json.loads(CONFIG_PATH.read_text())

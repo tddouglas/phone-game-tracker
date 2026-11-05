@@ -7,7 +7,7 @@ import json
 import re
 from collections import Counter, defaultdict
 
-from . import config
+from . import config, icons, ratings
 from .contacts import load_contacts, norm_handle
 from .store import Store
 
@@ -74,6 +74,10 @@ def build(store: Store, cfg: dict) -> dict:
             item["raw"] = URL_STRIP.sub("", r["raw"] or "").strip()[:500]
         results.append(item)
 
+    meta = icons.load()
+    for g in games.values():
+        g.update({k: v for k, v in meta.get(g["key"], {}).items() if k in ("url", "icon")})
+
     return {
         "title": cfg.get("title") or "Game Chat",
         "generated_at": dt.datetime.now().astimezone().isoformat(timespec="minutes"),
@@ -81,6 +85,7 @@ def build(store: Store, cfg: dict) -> dict:
         "players": sorted(({"id": k, "name": v} for k, v in players.items()), key=lambda x: x["name"].lower()),
         "games": sorted(games.values(), key=lambda g: g["name"].lower()),
         "results": results,
+        "ratings": ratings.compute(results, games),
     }
 
 

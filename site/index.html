@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="dark light">
 <!-- Tints Safari's toolbar / status bar to match the page; keep in sync with --surface in style.css -->
-<meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1a1a19" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12121f" media="(prefers-color-scheme: dark)">
+<!-- Same 3x3 share-grid tile mark as .mark in the header -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'><rect width='34' height='34' rx='8' fill='%2312121f'/><g fill='%2339ff88'><rect x='4' y='4' width='7' height='7' rx='2'/><rect x='4' y='13.5' width='7' height='7' rx='2'/><rect x='13.5' y='13.5' width='7' height='7' rx='2'/><rect x='13.5' y='23' width='7' height='7' rx='2'/><rect x='23' y='23' width='7' height='7' rx='2'/></g><g fill='%23ff2bd6'><rect x='13.5' y='4' width='7' height='7' rx='2'/><rect x='23' y='13.5' width='7' height='7' rx='2'/></g><g fill='%232a2a45'><rect x='23' y='4' width='7' height='7' rx='2'/><rect x='4' y='23' width='7' height='7' rx='2'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Figtree:wght@400;500;600;700&family=Rubik+Mono+One&display=swap">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Tentacruel</title>
 <!-- Link previews (iMessage, Slack, etc.) read these from the static HTML; they don't run app.js -->
@@ -27,13 +31,12 @@
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#/" id="brand">Game Chat</a>
+    <a class="brand" href="#/"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span id="brand">Game Chat</span></a>
     <nav id="nav">
-      <a href="#/" data-v="">Day</a>
+      <a href="#/rankings" data-v="rankings">Rankings</a>
       <a href="#/games" data-v="games">Games</a>
       <a href="#/players" data-v="players">Players</a>
     </nav>
-    <div class="range" id="range" role="group" aria-label="Time range"></div>
   </div>
 </header>
 <main class="wrap" id="app"><p class="muted">Loading…</p></main>

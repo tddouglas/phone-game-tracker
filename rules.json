@@ -61,5 +61,26 @@
     "puzzle": "maptap\\.gg\\s+(\\w+ \\d{1,2})",
     "score": "Final score:\\s*(?P<score>[\\d,]+)",
     "direction": "higher", "unit": "points"
+  },
+  {
+    "name": "Krillion", "key": "krillion",
+    "detect": "Krillion\\s*#\\d+",
+    "puzzle": "Krillion\\s*#(\\d+)",
+    "score": "^\\s*(?P<score>\\d+)\\s*$",
+    "direction": "higher", "unit": "points"
+  },
+  {
+    "name": "Farflung", "key": "farflung",
+    "detect": "Far\\s?flung\\s*#\\d+",
+    "puzzle": "Far\\s?flung\\s*#(\\d+)",
+    "score": "(?P<score>\\d+)\\s*/\\s*(?P<max>\\d+)\\s*km",
+    "direction": "higher", "unit": "points", "display": "{score}/{max} km"
+  },
+  {
+    "name": "Fermi", "key": "fermi",
+    "detect": "Fermi\\s*·\\s*No\\.\\s*\\d+",
+    "puzzle": "No\\.\\s*(\\d+)",
+    "score": "(?P<score>[\\d.]+)×\\s*score",
+    "direction": "higher", "unit": "other", "display": "{score}×"
   }
 ]

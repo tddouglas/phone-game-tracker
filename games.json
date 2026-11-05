@@ -1,0 +1,49 @@
+{
+  "daily-holes": {
+    "url": "https://dailyholes.com",
+    "icon": "icons/daily-holes.png"
+  },
+  "daily-holes-wild-three": {
+    "url": "https://dailyholes.com",
+    "icon": "icons/daily-holes-wild-three.png"
+  },
+  "dailyorbs": {
+    "url": "https://dailyorbs.com",
+    "icon": "icons/dailyorbs.svg"
+  },
+  "dailytens": {
+    "url": "https://dailytens.com",
+    "icon": "icons/dailytens.png"
+  },
+  "eraly": {
+    "url": "https://eraly.io",
+    "icon": "icons/eraly.png"
+  },
+  "farflung": {
+    "url": "https://farflung.game",
+    "icon": "icons/farflung.png"
+  },
+  "fermi": {
+    "url": "https://fermi.gg",
+    "icon": "icons/fermi.png"
+  },
+  "heardle": {
+    "icon": "icons/heardle.svg"
+  },
+  "krillion": {
+    "url": "https://krillion.io/",
+    "icon": "icons/krillion.png"
+  },
+  "maptap": {
+    "url": "https://maptap.gg",
+    "icon": "icons/maptap.ico"
+  },
+  "noillirk": {
+    "url": "https://noillirk.com/",
+    "icon": "icons/noillirk.png"
+  },
+  "spotle-movies": {
+    "url": "https://spotle.movie",
+    "icon": "icons/spotle-movies.svg"
+  }
+}

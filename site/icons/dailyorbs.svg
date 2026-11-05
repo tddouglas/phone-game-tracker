@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g1" gradientUnits="userSpaceOnUse" x1="32" y1="8" x2="56" y2="32">
+      <stop offset="0%" stop-color="#ff8a00"/>
+      <stop offset="100%" stop-color="#4caf50"/>
+    </linearGradient>
+    <linearGradient id="g2" gradientUnits="userSpaceOnUse" x1="56" y1="32" x2="32" y2="56">
+      <stop offset="0%" stop-color="#4caf50"/>
+      <stop offset="100%" stop-color="#42a5f5"/>
+    </linearGradient>
+    <linearGradient id="g3" gradientUnits="userSpaceOnUse" x1="32" y1="56" x2="8" y2="32">
+      <stop offset="0%" stop-color="#42a5f5"/>
+      <stop offset="100%" stop-color="#ab47bc"/>
+    </linearGradient>
+    <linearGradient id="g4" gradientUnits="userSpaceOnUse" x1="8" y1="32" x2="32" y2="8">
+      <stop offset="0%" stop-color="#ab47bc"/>
+      <stop offset="100%" stop-color="#ff8a00"/>
+    </linearGradient>
+  </defs>
+  <!-- Antialiasing: thin background circle fills sub-pixel seams at arc joins -->
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#888" stroke-width="12.5" opacity="0.3"/>
+  <!-- Four quarter arcs: orange(top) → green(right) → blue(bottom) → purple(left) → orange -->
+  <path d="M 32 8 A 24 24 0 0 1 56 32" fill="none" stroke="url(#g1)" stroke-width="12"/>
+  <path d="M 56 32 A 24 24 0 0 1 32 56" fill="none" stroke="url(#g2)" stroke-width="12"/>
+  <path d="M 32 56 A 24 24 0 0 1 8 32" fill="none" stroke="url(#g3)" stroke-width="12"/>
+  <path d="M 8 32 A 24 24 0 0 1 32 8" fill="none" stroke="url(#g4)" stroke-width="12"/>
+</svg>

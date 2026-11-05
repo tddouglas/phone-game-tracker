@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tests"))
 
 import fake_chatdb  # noqa: E402
-from gamechat import config, export, llm, sync  # noqa: E402
+from gamechat import config, export, llm, ratings, sync  # noqa: E402
 from gamechat.parsers import Parser  # noqa: E402
 from gamechat.store import Store  # noqa: E402
 
@@ -64,9 +64,30 @@ def unit_parsers(tmp):
     print(f"  parsers: {len(cases)} formats + chatter + multi-game message OK")
 
 
+def unit_ratings():
+    games = {"lo": {"direction": "lower"}, "hi": {"direction": "higher"}}
+    res = lambda p, g, d, s, f=0: {"p": p, "g": g, "d": d, "s": s, "f": f}
+    rs = [res("a", "lo", "2026-01-01", 3), res("b", "lo", "2026-01-01", 5), res("c", "lo", "2026-01-01", 7, 1),
+          res("a", "lo", "2026-01-02", 2), res("b", "lo", "2026-01-02", 4), res("b", "lo", "2026-01-02", 1),
+          res("a", "hi", "2026-01-02", 10), res("c", "hi", "2026-01-02", 90)]
+    out = ratings.compute(rs, games)
+    lo, hi = out["games"]["lo"], out["games"]["hi"]
+    assert lo["a"]["r"] > lo["b"]["r"] > lo["c"]["r"], lo   # lower wins; the fail is last
+    assert hi["c"]["r"] > hi["a"]["r"], hi
+    # Everyone is provisional (same K), so pairwise Elo is zero-sum per game.
+    assert abs(sum(x["r"] for x in lo.values()) - 1500 * 3) <= 1, lo
+    assert all(len(x["hist"]) == len(out["days"]) for g in out["games"].values() for x in g.values())
+    assert hi["a"]["hist"][0] is None and lo["c"]["hist"][1] == lo["c"]["hist"][0]   # null before play, carried forward
+    assert out["h2h"]["a"]["b"] == [2, 0, 0] and out["h2h"]["c"]["b"] == [0, 1, 0]
+    assert "b" not in out["h2h"]["b"], "a second same-day post must not be paired with the first"
+    assert ratings.outcome({"s": 1, "f": 1}, {"s": 1, "f": 1}, "lower", 1) == 0.5
+    print("  ratings: direction, fails, zero-sum, history alignment, h2h OK")
+
+
 def main():
     tmp = Path(tempfile.mkdtemp())
     unit_parsers(tmp)
+    unit_ratings()
     db = tmp / "chat.db"
     fake_chatdb.build(db)
 
@@ -113,6 +134,11 @@ def main():
     # dedupe: one result per player/game/puzzle
     keys = [(r["p"], r["g"], r["pz"] or r["d"]) for r in data["results"]]
     assert len(keys) == len(set(keys))
+    rt = data["ratings"]
+    pids = {p["id"] for p in data["players"]}
+    assert rt["overall"] and set(rt["overall"]) <= pids and rt["power"] is not None
+    assert all(len(x["hist"]) == len(rt["days"]) for g in rt["games"].values() for x in g.values())
+    assert not any(n in json.dumps(rt) for n in names), "ratings should reference players by id only"
     out = Path(sys.argv[1]) if len(sys.argv) > 1 else None
     if out:
         out.write_text(json.dumps(data, ensure_ascii=False))
